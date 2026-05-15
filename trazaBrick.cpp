@@ -19,20 +19,18 @@ void mostrar(vector<int> &T, int rojo, int cyan) {
   }
 }
 
-void bubbleSort(vector<int> &T) {
-  for (int i = T.size() - 1; i > 0; i--) {
+void bricksort(vector<int> &T) {
+  int n = T.size();
+  for (int i = n - 1; i > 0; i--) {
     cout << endl;
     cout << "  i=" << i << endl;
-
     for (int j = 0; j < i; j++) {
-
-      mostrar(T, T[j], T[j + 1]);
+      mostrar(T, T[j], T[j - 1]);
       cout << " j=" << j + 1 << endl;
-
-      if (T[j] > T[j + 1]) {
+      if (T[j] < T[j - 1]) {
         int aux = T[j];
-        T[j] = T[j + 1];
-        T[j + 1] = aux;
+        T[j] = T[j - 1];
+        T[j - 1] = aux;
       }
     }
     mostrar(T, 0, 0);
@@ -42,5 +40,5 @@ void bubbleSort(vector<int> &T) {
 
 int main() {
   vector<int> T = {5, 4, 3, 2, 1};
-  bubbleSort(T);
+  bricksort(T);
 }
