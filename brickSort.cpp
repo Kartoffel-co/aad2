@@ -6,16 +6,24 @@
 using namespace std;
 
 void bricksort(vector<int> &T) {
+
   int n = T.size();
-  for (int i = n - 1; i > 0; i--) {
 
-    for (int j = 0; j < i; j++) {
+  for (int i = 0; i < n - 1; i++) {
 
-      if (T[j] < T[j - 1]) {
-        int aux = T[j];
-        T[j] = T[j - 1];
-        T[j - 1] = aux;
+    int min = i;
+
+    for (int j = i + 1; j < n; j++) {
+
+      if (T[j] < T[min]) {
+        min = j;
       }
+    }
+
+    while (min > i) {
+
+      swap(T[min], T[min - 1]);
+      min--;
     }
   }
 }

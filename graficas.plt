@@ -31,5 +31,5 @@ set output 'bricksort.png'
 set title "BrickSort"
 set ylabel "Tiempo (us)"
 
-plot 'resultados.csv' using 1:3 with linespoints title "Teorica O(n²)"
+plot 'resultados.csv' using 1:3 with linespoints title "BrickSort"
 
